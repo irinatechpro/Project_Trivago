@@ -10,7 +10,7 @@ public class HomePage extends BasePage{
     public WebElement clickSearchButton;
 
     @FindBy(xpath = "//button[@data-testid='header-login']")
-    public WebElement clickLoginButton;
+    public WebElement clickLoginPage;
 
     @FindBy(xpath = "//button[@data-testid='header-profile-menu']")
     public WebElement clickProfileMenuButton;
@@ -21,6 +21,15 @@ public class HomePage extends BasePage{
 
     @FindBy(xpath = "//button[@data-testid='header-logout']")
     public WebElement clickLogout;
+
+
+    @FindBy(xpath = "//input[@id='input-auto-complete']")
+    public WebElement insertLocation;
+
+    @FindBy(xpath = "//strong[@class='bg-grey-300'][1]")
+    public WebElement numOfStaysFound;
+
+
 
 
 
