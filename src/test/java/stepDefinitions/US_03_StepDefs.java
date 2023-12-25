@@ -3,7 +3,10 @@ package stepDefinitions;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.*;
 import project.pages.HomePage;
+import project.pages.LoginPage;
+import project.utilities.ConfigReader;
 import project.utilities.FakerUtils;
+import project.utilities.ReusableMethods;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -11,7 +14,17 @@ import static org.junit.Assert.assertTrue;
 public class US_03_StepDefs {
 
     HomePage homePage;
+    LoginPage loginPage;
 
+
+    @When("login as a user")
+    public void login_as_a_user() {
+        ReusableMethods.waitFor(2);
+        homePage.clickLoginPage.click();
+        loginPage.insertUsername.sendKeys(ConfigReader.getProperty("username"));
+        loginPage.insertPassword.sendKeys(ConfigReader.getProperty("password"));
+        loginPage.clickToLogin.click();
+    }
 
 
     @When("I perform a search for hotels or accommodations in a specific location")
