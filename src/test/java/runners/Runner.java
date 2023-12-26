@@ -15,9 +15,13 @@ import org.junit.runner.RunWith;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
         features = ".//src//test//resources//features//ui",
-        glue = {"project.stepDefinitions"},
-        dryRun = true,
-        tags="@US_15_TC01"
+       // features = "src/test/resources/features/ui",
+     //  glue = {"stepdefinitions"},
+     //   glue = {"stepdefinitions","hooks"}, //path of the step definitions
+     //   glue = {".//src//test//java//stepDefinitions"},
+        glue = {"stepDefinitions"},
+        dryRun = false,
+        tags="@US_06_TC01"
 )
 public class Runner {
 }

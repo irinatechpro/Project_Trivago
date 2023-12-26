@@ -29,7 +29,11 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//strong[@class='bg-grey-300'][1]")
     public WebElement numOfStaysFound;
 
+@FindBy(xpath = "//span[@data-testid='suggestion-subtitle']")
+    public WebElement subtitleOfLocation;
 
+    @FindBy(xpath = "//span[@data-testid='search-form-calendar-checkin-value']")
+    public WebElement checkInOut;
 
 
 
