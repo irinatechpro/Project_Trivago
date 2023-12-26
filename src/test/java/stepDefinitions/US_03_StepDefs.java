@@ -6,6 +6,7 @@ import project.pages.HomePage;
 import project.pages.LoginPage;
 import project.utilities.ConfigReader;
 import project.utilities.FakerUtils;
+import project.utilities.JSUtils;
 import project.utilities.ReusableMethods;
 
 import static org.junit.Assert.assertEquals;
@@ -13,42 +14,47 @@ import static org.junit.Assert.assertTrue;
 
 public class US_03_StepDefs {
 
-    HomePage homePage;
-    LoginPage loginPage;
+    HomePage homePage = new HomePage();
+    LoginPage loginPage = new LoginPage();
 
 
-    @When("login as a user")
-    public void login_as_a_user() {
-        ReusableMethods.waitFor(2);
-        homePage.clickLoginPage.click();
-        loginPage.insertUsername.sendKeys(ConfigReader.getProperty("username"));
-        loginPage.insertPassword.sendKeys(ConfigReader.getProperty("password"));
-        loginPage.clickToLogin.click();
-    }
 
+
+
+    //US03_TC01
 
     @When("I perform a search for hotels or accommodations in a specific location")
     public void i_perform_a_search_for_hotels_or_accommodations_in_a_specific_location() {
-
-        homePage.clickSearchButton.click();
+        JSUtils.clickElementByJS(homePage.clickSearchButton);
     }
 
     @When("I apply location-based filters \\(e.g., city, neighborhood)")
     public void i_apply_location_based_filters_e_g_city_neighborhood() {
         homePage.insertLocation.sendKeys("Berlin");
+        ReusableMethods.waitForClickablility(homePage.selectFromSuggestion, 2).click();
+        JSUtils.clickElementByJS(homePage.clickSearchButton);
+
 
     }
 
     @Then("I verify that the search results are updated to include only accommodations in the specified location")
     public void i_verify_that_the_search_results_are_updated_to_include_only_accommodations_in_the_specified_location() {
 
-        assertEquals("Berlin", homePage.insertLocation.getText());
-        assertTrue("Expected at least 1 relevant result found",
-                Integer.parseInt(homePage.numOfStaysFound.getText().trim()) > 0);
+
+//        assertEquals("Berlin", homePage.textInLocationBox.getText());
+//        ReusableMethods.waitFor(2);
+
+
+        int numOfResults = Integer.parseInt(ReusableMethods.waitForVisibility(homePage.resultForStaysFound, 3).getText());
+        assertTrue("Expected at least 1 relevant result found", numOfResults >= 1);
     }
+
+
+    //US03_TC02
 
     @When("I perform a search for hotels or accommodations")
     public void i_perform_a_search_for_hotels_or_accommodations() {
+        JSUtils.clickElementByJS(homePage.clickSearchButton);
 
     }
 

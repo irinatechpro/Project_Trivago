@@ -14,4 +14,7 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//button[@data-testid='login-submit']")
     public WebElement clickToLogin;
 
+    @FindBy(xpath = "//button[@data-testid='login-next-button']")
+    public WebElement clickLoginNextButton;
+
 }
