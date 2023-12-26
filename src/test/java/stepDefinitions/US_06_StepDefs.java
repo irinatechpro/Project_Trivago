@@ -26,8 +26,8 @@ public class US_06_StepDefs {
       homePage.insertLocation.sendKeys("Manchester");
       homePage.subtitleOfLocation.click();
       homePage.checkInOut.click();
-        WebElement checkInInput = driver.findElement(By.id("checkin-input-id"));
-        WebElement checkOutInput = driver.findElement(By.id("checkout-input-id"));
+//        WebElement checkInInput = driver.findElement(By.id("checkin-input-id"));
+//        WebElement checkOutInput = driver.findElement(By.id("checkout-input-id"));
     }
 //    @Then("click on Property type menu, select Entire House \\/ Apartment")
 //    public void click_on_property_type_menu_select_entire_house_apartment() {
