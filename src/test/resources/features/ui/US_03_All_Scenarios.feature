@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 @US03
->>>>>>> main
 Feature: Trivago Search Functionality
 
   Background:
