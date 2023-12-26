@@ -23,11 +23,30 @@ public class HomePage extends BasePage{
     public WebElement clickLogout;
 
 
+    @FindBy(xpath = "//span[@data-testid='suggestion-subtitle'][1]")
+    public WebElement selectFromSuggestion;
+
+
+    @FindBy(xpath = "//input[@value='Berlin']")
+    public WebElement textInLocationBox;
+
+
+
     @FindBy(xpath = "//input[@id='input-auto-complete']")
     public WebElement insertLocation;
 
-    @FindBy(xpath = "//strong[@class='bg-grey-300'][1]")
-    public WebElement numOfStaysFound;
+    @FindBy(xpath = "//div[@aria-hidden='true']")
+    public WebElement resultForStaysFound;
+
+
+    @FindBy(xpath = "//input[@class='PriceInput_input__KBE9v']")
+    public WebElement setMaxPriceRange;
+
+    @FindBy(xpath = "//span[@class='truncate w-full']")
+    public WebElement clickPriceFilterInput;
+
+    @FindBy(xpath = "//button[@data-testid='filters-popover-apply-button']")
+    public WebElement priceFilterApplyButton;
 
 
 
