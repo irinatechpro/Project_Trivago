@@ -5,7 +5,8 @@ Feature: Hotel Details Page
 
 
   Scenario: TC_01 Verify Hotel Detail Buttons
-  When Go to the requested hotel
+  When Go on home page
+  Then Go to the requested hotel
   Then Click on Overview
   Then Click Info
   Then Click on Photos

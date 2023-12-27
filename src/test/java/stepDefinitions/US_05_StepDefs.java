@@ -12,13 +12,17 @@ public class US_05_StepDefs {
     HotelPage hotelPage;
 
 
-    @When("Go to the requested hotel")
-    public void go_to_the_requested_hotel() {
+    @When("Go on home page")
+    public void goOnHomePage() {
         homePage = new HomePage();
         ReusableMethods.waitFor(2);
         homePage.insertLocation.sendKeys("Amsterdam");
         ReusableMethods.waitForClickablility(homePage.clickSearchButton, 2).click();
         JSUtils.clickElementByJS(homePage.clickSearchButton);
+    }
+
+    @When("Go to the requested hotel")
+    public void go_to_the_requested_hotel() {
         hotelPage = new HotelPage();
         ReusableMethods.waitFor(2);
         JSUtils.clickElementByJS(hotelPage.randomHotel);
@@ -28,6 +32,7 @@ public class US_05_StepDefs {
     public void click_on_overview() {
         hotelPage = new HotelPage();
         ReusableMethods.waitFor(2);
+        ReusableMethods.waitForClickablility(hotelPage.overview, 2).click();
         JSUtils.clickElementByJS(hotelPage.overview);
     }
 
@@ -61,4 +66,6 @@ public class US_05_StepDefs {
     public void verify_that_buttons_on_the_page_are_clickable() {
 
     }
+
+
 }

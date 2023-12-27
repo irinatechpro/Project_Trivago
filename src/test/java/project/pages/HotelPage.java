@@ -34,7 +34,7 @@ public class HotelPage  extends BasePage{
    @FindBy(xpath = "//button[@id='tabs-515-tab-2']")
     public WebElement photos;
 
-   @FindBy(xpath = "//button[@id='tabs-515-tab-3']")
+   @FindBy(xpath = "//button[@aria-selected='true']")
     public WebElement reviews;
 
 
