@@ -10,10 +10,6 @@ public class HousePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//button[@data-testid='uc-accept-all-button']")
-    public WebElement cockes;
-
-    @FindBy(xpath = "//button[@class='SearchButtonWithLoader_button___1Bps']")
-    public WebElement clickSearchButton;
-
+    @FindBy(xpath = "//span[@title='Native Manchester']")
+    public WebElement nativeManchesterSpan;
 }
