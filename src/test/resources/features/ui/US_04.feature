@@ -2,10 +2,10 @@ Feature: Hotel Details Page
 
   Background:
     Given go to the "url"
-    When login as a user
+
 
   Scenario: TC_01 Confirm that hotel details pages provide accurate information
-  When Choose a place as destination and select all the necessary steps than click on Search
+  When Choose a place as destination and select all the necessary steps and click on Search
   Then Click on a hotel from the search results
   Then Check if the details include accurate pricing
   Then Check if the details include accurate amenities
