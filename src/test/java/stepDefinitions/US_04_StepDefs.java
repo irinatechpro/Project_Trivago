@@ -59,7 +59,11 @@ public class US_04_StepDefs {
 
     @When("Choose a place as destination and click on Search")
     public void choose_a_place_as_destination_and_click_on_search() {
-
+        homePage = new HomePage();
+        ReusableMethods.waitFor(2);
+        homePage.insertLocation.sendKeys("Amsterdam");
+        ReusableMethods.waitForClickablility(homePage.clickSearchButton, 2).click();
+        JSUtils.clickElementByJS(homePage.clickSearchButton);
     }
 
     @Then("Click on a hotel from the search results page")
@@ -69,11 +73,16 @@ public class US_04_StepDefs {
 
     @Then("Click on View Deal button")
     public void click_on_view_deal_button() {
+        hotelPage = new HotelPage();
+        ReusableMethods.waitFor(2);
+        hotelPage.viewDeal.click();
 
     }
 
     @Then("Click on See description")
     public void click_on_see_description() {
+        hotelPage = new HotelPage();
+        ReusableMethods.waitFor(3);
 
     }
 

@@ -1,33 +1,55 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
+import project.pages.HomePage;
+import project.pages.HotelPage;
+import project.utilities.JSUtils;
+import project.utilities.ReusableMethods;
 
 public class US_05_StepDefs {
+
+    HomePage homePage;
+    HotelPage hotelPage;
 
 
     @When("Go to the requested hotel")
     public void go_to_the_requested_hotel() {
-
+        homePage = new HomePage();
+        ReusableMethods.waitFor(2);
+        homePage.insertLocation.sendKeys("Amsterdam");
+        ReusableMethods.waitForClickablility(homePage.clickSearchButton, 2).click();
+        JSUtils.clickElementByJS(homePage.clickSearchButton);
+        hotelPage = new HotelPage();
+        ReusableMethods.waitFor(2);
+        JSUtils.clickElementByJS(hotelPage.randomHotel);
     }
 
     @Then("Click on Overview")
     public void click_on_overview() {
-
+        hotelPage = new HotelPage();
+        ReusableMethods.waitFor(2);
+        JSUtils.clickElementByJS(hotelPage.overview);
     }
 
     @Then("Click Info")
     public void click_info() {
-
+        hotelPage = new HotelPage();
+        ReusableMethods.waitFor(2);
+        hotelPage.info.click();
     }
 
     @Then("Click on Photos")
     public void click_on_photos() {
-
+        hotelPage = new HotelPage();
+        ReusableMethods.waitFor(2);
+        hotelPage.photos.click();
     }
 
     @Then("Click on Review")
     public void click_on_review() {
-
+        hotelPage = new HotelPage();
+        ReusableMethods.waitFor(2);
+        hotelPage.reviews.click();
     }
 
     @Then("Click on prices")

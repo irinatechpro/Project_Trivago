@@ -21,6 +21,22 @@ public class HotelPage  extends BasePage{
     @FindBy(xpath = "(//span[@data-testid='popular-badge'])[1]")
     public WebElement popularChoice;
 
+    @FindBy(xpath = "(//span[@class='leading-normal truncate -mr-3 text-l'])[7]")
+    public WebElement viewDeal;
+    @FindBy(xpath = "(//span[@class='e4adce92df'])[8]")
+    public WebElement seeAvailability;
+     @FindBy(xpath = "//button[@id='tabs-515-tab-0']")
+    public WebElement overview;
+
+    @FindBy(xpath = "//button[@id='tabs-515-tab-1']")
+    public WebElement info;
+
+   @FindBy(xpath = "//button[@id='tabs-515-tab-2']")
+    public WebElement photos;
+
+   @FindBy(xpath = "//button[@id='tabs-515-tab-3']")
+    public WebElement reviews;
+
 
 
 }
