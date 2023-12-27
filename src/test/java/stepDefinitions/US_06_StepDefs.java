@@ -2,15 +2,15 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import project.pages.HomePage;
 import project.pages.HousePage;
-import project.utilities.ConfigReader;
-import project.utilities.Driver;
-import project.utilities.JSUtils;
-import project.utilities.ReusableMethods;
+import project.utilities.*;
+
+import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -42,10 +42,24 @@ public class US_06_StepDefs {
         homePage.propertyTypeMenu.click();
         homePage.EntireHouseApartment.click();
         homePage.propertyTypeApply.click();
+
     }
     @Then("verify Price menu is selectable")
     public void verifyPriceMenuIsSelectable() {
-       housePage.nativeManchesterSpan.click();
+        housePage.nativeManchesterSpan.click();
+        waitFor(5);
+        housePage.iconSpan.click();
+        waitFor(4);
+//        try { MediaUtils.takeScreenshotOfTheEntirePage();
+//
+//        }catch (IOException e) {
+//            throw  new RuntimeException(e);
+//        }
+
+
+
+      //  housePage.pricesButton.click();
+        //Assert.assertTrue(homePage.);
     }
     // Locate the Check-In dropdown element and select a date
     // WebElement checkInDropdown = driver.findElement(By.id("checkin-dropdown-id"));
