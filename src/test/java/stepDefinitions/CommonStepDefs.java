@@ -35,7 +35,4 @@ public class CommonStepDefs {
         loginPage.clickToLogin.click();
     }
 
-
-
-
 }

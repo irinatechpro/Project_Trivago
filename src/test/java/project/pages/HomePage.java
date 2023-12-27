@@ -48,8 +48,21 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//button[@data-testid='filters-popover-apply-button']")
     public WebElement priceFilterApplyButton;
 
+   public WebElement subtitleOfLocation;
 
+    @FindBy(xpath = "//span[@data-testid='search-form-calendar-checkin-value']")
+    public WebElement checkInOut;
 
+    @FindBy(xpath = "//button[@data-testid='valid-calendar-day-2024-01-15']")
+    public WebElement checkInDropdown;
+    @FindBy(xpath = "//button[@data-testid='valid-calendar-day-2024-01-25']")
+    public WebElement checkOutDropdown;
+    @FindBy(xpath = "//button[@name='property_type']")
+    public WebElement propertyTypeMenu;
 
+    @FindBy(xpath = "//label[contains(@for, 'checkbox-') and @data-testid='checkbox-label' and contains(text(), 'Entire House / Apartment')]")
+    public WebElement EntireHouseApartment;
 
+    @FindBy(xpath = "//button[@data-testid='filters-popover-apply-button']")
+    public WebElement propertyTypeApply;
 }
