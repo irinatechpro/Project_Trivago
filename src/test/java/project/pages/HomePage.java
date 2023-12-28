@@ -64,4 +64,13 @@ public class HomePage extends BasePage{
 
     @FindBy(xpath = "//button[@data-testid='filters-popover-apply-button']")
     public WebElement propertyTypeApply;
+
+    @FindBy(xpath = "//p[@data-testid = 'no-results-suggestion']")
+    public WebElement noResultsSuggestion;
+
+    @FindBy(xpath = "//p[@data-testid = 'search-form-calendar-checkin']")
+    public WebElement searchFormCalendarCheckIn;
+
+    @FindBy(xpath = "//p[@data-testid = 'nextWeekend-index-label']")
+    public WebElement nextWeekendButton;
 }
