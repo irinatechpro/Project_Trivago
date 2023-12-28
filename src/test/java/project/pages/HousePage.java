@@ -16,8 +16,20 @@ public class HousePage {
 
     @FindBy(xpath = "//button[@id='tabs-199-tab-4' and @aria-selected='true']")
     public WebElement pricesButton;
-   // @FindBy(xpath = "//span[contains(@class, 'Icon_s__dDarH') and contains(@class, 'rotate-90')]/svg]")
-   @FindBy(xpath = "//span.Icon_s__dDarH.rotate-90 svg")
+
+  @FindBy(xpath = "//span.Icon_s__dDarH.rotate-90 svg")
     public WebElement iconSpan;
-   // <span class="leading-none inline-flex Icon_s__dDarH rotate-90 transform transform align-middle mr-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="pointer-events-none max-h-full max-w-full"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"><path vector-effect="non-scaling-stroke" d="M10 17l5-5M10 7l5 5"></path></g></svg></span>
+
+        @FindBy(xpath = "//button[@class='bg-white text-s font-bold px-3 leading-none h-8 border rounded-xs border-grey-700 hover:text-white hover:bg-grey-700']")
+   public WebElement infoButton;
+
+
+    @FindBy(xpath = "//button[@id='tabs-247-tab-3' and @aria-selected='false' and contains(text(),'Reviews')]")
+    public WebElement reviewsButton;
+
+    @FindBy(xpath = "//select[@id='sorting-selector']")
+    public WebElement sortingSelector;
+    @FindBy(css = "span.truncate.pl-2:contains('Map')")
+    public WebElement mapSpan;
+
 }

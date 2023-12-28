@@ -3,20 +3,19 @@ Feature: House Details Page Functionality
 
  Background: go_Homepage
    Given go to the "url"
-  @US_06_TC01
+  @US_06_TC_01
   Scenario: Users see detailed information about prices, room types and amenities.
       When select Landmark, Check in, Check out from dropdown menu and click on Search button
     Then click on Property type menu, select Entire House Apartment
-   Then verify Price menu is selectable
-#    And verify Filters menu is selectable
+   Then Check accurate pricing
+   And Check accurate amenities
+    And Check accurate room types
 
-#  @US06_TC02
-#  Scenario: User should be able to click any button and link and get the information they need.
-#    When
-#    Then
-#    Then
-#    And
-#    And
-#    Then
-#    And
-#    Then
+  @US_06_TC_02
+  Scenario: Verify that buttons and links on the page are functional
+    When select Landmark, Check in, Check out from dropdown menu and click on Search button
+    Then click on Property type menu, select Entire House Apartment
+    When select Guest rating,  Location from dropdown menu
+   Then click on  View Map button
+    Then click on Return to list button
+    And select  Distance &Recommended from  Sort by dropdown menu
