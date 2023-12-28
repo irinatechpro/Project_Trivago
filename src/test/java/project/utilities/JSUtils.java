@@ -2,7 +2,15 @@ package project.utilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import project.pages.HomePage;
+
+import java.time.Duration;
+
 public class JSUtils {
+
+
 
     public static void clickElementByJS(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", ReusableMethods.waitForVisibility(element,5));
@@ -100,6 +108,29 @@ public class JSUtils {
         System.out.println(value);
 
     }
+
+
+    public static void clickCheckboxIfVisibleAndClickable(WebElement checkbox) {
+        try {
+            Driver.getDriver();
+            // Use explicit wait to wait for the checkbox to be clickable
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(checkbox));
+
+            // Check if the checkbox is visible using JavaScript
+            boolean isCheckboxVisible = (boolean) ((JavascriptExecutor) Driver.getDriver())
+                    .executeScript("return arguments[0].offsetParent !== null;", checkbox);
+
+            // If the checkbox is visible, click on it
+            if (isCheckboxVisible) {
+                checkbox.click();
+            }
+        } catch (Exception e) {
+            // Handle any exceptions or log them
+            e.printStackTrace();
+        }
+    }
+
     public static void addBorderWithJS(WebElement element, String borderStyle){
         JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
         js.executeScript("arguments[0].style.border='"+borderStyle+"'",element);

@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import project.utilities.Driver;
 
-public class HousePage {
+public class HousePage extends BasePage {
     public HousePage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
