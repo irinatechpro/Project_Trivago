@@ -119,6 +119,29 @@ public class ReusableMethods {
         return path;
     }
 
+
+    public static void pressEnterKey(WebElement element) {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(element, Keys.ENTER).build().perform();
+    }
+
+    public static void adjustPriceLevelBar(WebElement priceLevelBarElement, int maxValue) {
+        // Assuming the price level bar has a range from 0 to 600
+        int range = 600;
+
+        // Calculate the percentage of the range covered by the desired maximum value
+        double percentage = (double) maxValue / range;
+
+        // Calculate the xOffset based on the percentage of the range
+        int xOffset = (int) (percentage * priceLevelBarElement.getSize().getWidth());
+
+        // Use Actions class to perform the click-and-hold, move by offset, and release actions
+        Actions actions = new Actions(Driver.getDriver());
+        actions.clickAndHold(priceLevelBarElement).moveByOffset(xOffset, 0).release().build().perform();
+    }
+
+
+
     //webElement ScreenShot
     public static void takeScreenshotWebElement(WebElement element){
         String now = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -333,19 +356,16 @@ public class ReusableMethods {
         return select.getFirstSelectedOption();
     }
 
+
+
+
     /**
      * Verifies whether the element matching the provided locator is displayed on page
      * fails if the element matching the provided locator is not found or not displayed
      *
      * @param by
      */
-    public static void verifyElementDisplayed(By by) {
-        try {
-            assertTrue("Element not visible: " + by, Driver.getDriver().findElement(by).isDisplayed());
-        } catch (NoSuchElementException e) {
-            Assert.fail("Element not found: " + by);
-        }
-    }
+
     /**
      * Verifies whether the element matching the provided locator is NOT displayed on page
      * fails if the element matching the provided locator is not found or not displayed

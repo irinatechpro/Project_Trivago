@@ -67,7 +67,7 @@ public class US_06_StepDefs {
 
     public void clickOnViewMapButton() {
         ReusableMethods.waitFor(5);
-        housePage.infoButton.click();
+      //  housePage.infoButton.click();
     }
     @And("Check accurate amenities")
     public void checkAccurateAmenities() {

@@ -3,7 +3,23 @@ package project.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HotelPage  extends BasePage{
+public class HotelPage {
+
+
+    @FindBy(xpath = "//span[@title='Hotel Adlon Kempinski Berlin']")
+    public WebElement clickHotelAldonBerlin;
+
+
+    @FindBy(xpath = "//button[@class='group w-full h-full inset-0 absolute cursor-pointer']")
+    public WebElement clickHotelInfo;
+
+
+    @FindBy(xpath = "//div[@class='table w-full']")
+    public WebElement hotelTopAmenitiesList;
+
+
+    @FindBy(xpath = "//button[@data-testid='toggle-all-amenities']")
+    public WebElement clickToOpenAmenitiesList;
 
     @FindBy(xpath = "(//button[@data-testid='item-name'])[1]")
     public WebElement randomHotel;
@@ -25,17 +41,50 @@ public class HotelPage  extends BasePage{
     public WebElement viewDeal;
     @FindBy(xpath = "(//span[@class='e4adce92df'])[8]")
     public WebElement seeAvailability;
-     @FindBy(xpath = "//button[@id='tabs-515-tab-0']")
+    @FindBy(xpath = "//button[@id='tabs-515-tab-0']")
     public WebElement overview;
 
     @FindBy(xpath = "//button[@id='tabs-515-tab-1']")
     public WebElement info;
 
-   @FindBy(xpath = "//button[@id='tabs-515-tab-2']")
+    @FindBy(xpath = "//button[@id='tabs-515-tab-2']")
     public WebElement photos;
 
-   @FindBy(xpath = "//button[@aria-selected='true']") //*[@id="tabs-187-tab-3"]
+
+   @FindBy(xpath = "//button[@aria-selected='true']")
+
+
     public WebElement reviews;
+
+    @FindBy(xpath = "//select[@id='sorting-selector']")
+    public WebElement sortingDropdown;
+
+    @FindBy(xpath = "//option[@value='0']")
+    public WebElement sortByOurRecommendation;
+
+    @FindBy(xpath = "//option[@value='6']")
+    public WebElement sortByRatingAndRecommended;
+
+    @FindBy(xpath = "//option[@value='4']")
+    public WebElement sortByPriceAndRecommended;
+
+    @FindBy(xpath = "//option[@value='5']")
+    public WebElement sortByDistanceAndRecommended;
+
+    @FindBy(xpath = "//option[@value='1']")
+    public WebElement sortByPriceOnly;
+
+    @FindBy(xpath = "//option[@value='3']")
+    public WebElement sortByRatingOnly;
+
+    @FindBy(xpath = "//option[@value='2']")
+    public WebElement sortByDistanceOnly;
+
+    @FindBy(xpath = "//span[@class='text-s whitespace-nowrap'][1]")
+    public WebElement sortedResult;
+
+
+
 
 
 

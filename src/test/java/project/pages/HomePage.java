@@ -39,8 +39,8 @@ public class HomePage extends BasePage{
     public WebElement resultForStaysFound;
 
 
-    @FindBy(xpath = "//input[@class='PriceInput_input__KBE9v']")
-    public WebElement setMaxPriceRange;
+    @FindBy(xpath = "//div[@data-testid='slider-handle-max']")
+    public WebElement movePriceLevelUp;
 
     @FindBy(xpath = "//span[@class='truncate w-full']")
     public WebElement clickPriceFilterInput;
@@ -48,7 +48,6 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//button[@data-testid='filters-popover-apply-button']")
     public WebElement priceFilterApplyButton;
 
-   public WebElement subtitleOfLocation;
 
     @FindBy(xpath = "//span[@data-testid='search-form-calendar-checkin-value']")
     public WebElement checkInOut;
@@ -65,4 +64,13 @@ public class HomePage extends BasePage{
 
     @FindBy(xpath = "//button[@data-testid='filters-popover-apply-button']")
     public WebElement propertyTypeApply;
+
+    @FindBy(xpath = "//p[@data-testid = 'no-results-suggestion']")
+    public WebElement noResultsSuggestion;
+
+    @FindBy(xpath = "//p[@data-testid = 'search-form-calendar-checkin']")
+    public WebElement searchFormCalendarCheckIn;
+
+    @FindBy(xpath = "//p[@data-testid = 'nextWeekend-index-label']")
+    public WebElement nextWeekendButton;
 }
