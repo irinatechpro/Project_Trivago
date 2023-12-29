@@ -5,16 +5,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import project.utilities.Driver;
 
-
-
-
-
     public class HousePage extends BasePage {
-
         public HousePage() {
             PageFactory.initElements(Driver.getDriver(), this);
         }
-
         @FindBy(xpath = "//span[@title='Native Manchester']")
         public WebElement nativeManchesterSpan;
 
@@ -27,7 +21,6 @@ import project.utilities.Driver;
         @FindBy(xpath = "//button[@aria-controls='aria-controls']")
         public WebElement infoButton;
 
-
         @FindBy(xpath = "//button[@id='tabs-247-tab-3' and @aria-selected='false' and contains(text(),'Reviews')]")
         public WebElement reviewsButton;
 
@@ -36,7 +29,6 @@ import project.utilities.Driver;
         @FindBy(css = "span.truncate.pl-2:contains('Map')")
         public WebElement mapSpan;
         // ------------------------------------------------------------------------------------
-
         @FindBy(xpath = "//input[@autocorrect='off']")
         public WebElement destination;
         @FindBy(xpath = "//input[@data-testid='search-form-destination']")

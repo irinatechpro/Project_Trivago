@@ -5,7 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage{
 
-
     @FindBy(xpath = "//button[@class='SearchButtonWithLoader_button___1Bps']")
     public WebElement clickSearchButton;
 
@@ -26,18 +25,14 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//span[@data-testid='suggestion-subtitle'][1]")
     public WebElement selectFromSuggestion;
 
-
     @FindBy(xpath = "//input[@value='Berlin']")
     public WebElement textInLocationBox;
-
-
 
     @FindBy(xpath = "//input[@id='input-auto-complete']")
     public WebElement insertLocation;
 
     @FindBy(xpath = "//div[@aria-hidden='true']")
     public WebElement resultForStaysFound;
-
 
     @FindBy(xpath = "//div[@data-testid='slider-handle-max']")
     public WebElement movePriceLevelUp;
@@ -47,7 +42,6 @@ public class HomePage extends BasePage{
 
     @FindBy(xpath = "//button[@data-testid='filters-popover-apply-button']")
     public WebElement priceFilterApplyButton;
-
 
     @FindBy(xpath = "//span[@data-testid='search-form-calendar-checkin-value']")
     public WebElement checkInOut;
