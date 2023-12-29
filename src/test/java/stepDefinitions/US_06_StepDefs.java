@@ -4,79 +4,95 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import project.pages.HomePage;
-import project.pages.HotelPage;
 import project.pages.HousePage;
 import project.utilities.*;
-
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static project.utilities.ReusableMethods.waitFor;
 public class US_06_StepDefs {
-    HomePage homePage = new HomePage();
-    HousePage housePage = new HousePage();
-
-    @When("select Landmark, Check in, Check out from dropdown menu and click on Search button")
-    public void select_landmark_check_in_check_out_from_dropdown_menu_and_click_on_search_button() {
-        waitFor(1);
-        homePage.clickSearchButton.click();
-        waitFor(2);
-        homePage.insertLocation.sendKeys("Manchester");
-        waitFor(1);
-        homePage.selectFromSuggestion.click();
-        waitFor(1);
-        homePage.checkInDropdown.click();
-        waitFor(1);
-        homePage.checkOutDropdown.click();
-        waitFor(1);
-        homePage.clickSearchButton.click();
-    }
-    @Then("click on Property type menu, select Entire House Apartment")
-    public void clickOnPropertyTypeMenuSelectEntireHouseApartment() {
-        ReusableMethods.waitFor(1);
+    HomePage homePage=new HomePage();
+    HousePage housePage= new HousePage();
+@Then("select Landmark, Check in, Check out from dropdown menu and click on Search button")
+public void select_Landmark_Check_in_Check_out_from_dropdown_menu_and__click_on_Search_button(){
+    WaitUtils.waitFor(1);
+    homePage.insertLocation.sendKeys("Manchester");
+    ReusableMethods.waitForClickablility(homePage.selectFromSuggestion, 2).click();
+    WaitUtils.waitFor(1);
+    homePage.checkInDropdown.click();
+    WaitUtils.waitFor(1);
+    homePage.checkOutDropdown.click();
+    WaitUtils.waitFor(1);
+    JSUtils.clickElementByJS(homePage.clickSearchButton);
+}
+@Then("click on Property type menu, select Entire House Apartment")
+public void click_On_Property_Type_Menu_Select_Entire_House_Apartment(){
         homePage.propertyTypeMenu.click();
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(5);
         homePage.EntireHouseApartment.click();
         ReusableMethods.waitFor(1);
         homePage.propertyTypeApply.click();
         ReusableMethods.waitFor(1);
-        housePage.nativeManchesterSpan.click();
     }
-    @Then("Check accurate pricing")
-    public void check_accurate_pricing() {
-        ReusableMethods.waitFor(5);
+@Then("Check accurate pricing")
+public void Check_accurate_pricing(){
+        Assert.assertTrue(housePage.priceTravel.isDisplayed());
+        ReusableMethods.waitFor(2);
         try {
             MediaUtils.takeScreenshotOfTheEntirePage();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        waitFor(10);
+         WaitUtils.waitFor(1);
     }
-    @When("select Guest rating,  Location from dropdown menu")
-    public void selectGuestRatingLocationFromDropdownMenu() {
+    @When("user clicks the house name")
+    public void user_clicks_the_house_name(){
+        housePage.firstHouseTitle.click();
+        ReusableMethods.waitFor(2);
+        WaitUtils.waitFor(1);
     }
-    @Then("click on  View Map button")
-
-    public void clickOnViewMapButton() {
-        ReusableMethods.waitFor(5);
-      //  housePage.infoButton.click();
+    @Then("user clicks the overview button")
+    public void user_clicks_the_overview_button(){
+        housePage.overview.click();
+        ReusableMethods.waitFor(2);
+        try {
+            MediaUtils.takeScreenshotOfTheEntirePage();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        WaitUtils.waitFor(1);
+        ActionUtils.scrollDownActions();
     }
-    @And("Check accurate amenities")
-    public void checkAccurateAmenities() {
-        //   JSUtils.clickElementByJS(housePage.reviewsButton);
+    @Then("check accurate amenities")
+    public void check_accurate_amenities(){
+        WaitUtils.waitForVisibility(housePage.topAmenities,2);
+        ReusableMethods.waitFor(2);
+        Assert.assertTrue(housePage.topAmenities.isDisplayed());
+        try {
+            MediaUtils.takeScreenshotOfTheEntirePage();
+            ReusableMethods.waitFor(2);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
-    @And("Check accurate room types")
-    public void checkAccurateRoomTypes() {
-    }
+    @And("verify Sort by dropdown menu is functional")
+    public void verify_Sort_by_dropdown_menu_is_functional() {
+       housePage.sortingSelector.click();
+     ReusableMethods.waitFor(5);
+        try {
+            MediaUtils.takeScreenshotOfTheEntirePage();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        WaitUtils.waitFor(1);
+        ActionUtils.scrollDownActions();
 }
+
+
+}
+
+
+
+
 
 
 

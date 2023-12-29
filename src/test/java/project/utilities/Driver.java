@@ -116,7 +116,7 @@ public class Driver {
     }
     public static void closeDriver() {
         if (driver != null) {//if the driver is pointing chrome
-            //  driver.quit();//quit the driver
+             driver.quit();//quit the driver
             driver = null;//set it back to null to make sure driver is null
             // so I can initialize it again
             //This is important especially you do cross browser testing(testing with

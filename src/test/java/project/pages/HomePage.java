@@ -73,4 +73,5 @@ public class HomePage extends BasePage{
 
     @FindBy(xpath = "//p[@data-testid = 'nextWeekend-index-label']")
     public WebElement nextWeekendButton;
+
 }
